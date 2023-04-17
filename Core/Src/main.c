@@ -134,8 +134,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_TIM_Base_Start_IT(&htim2);
   HAL_DAC_Start(&hdac,DAC_CHANNEL_1);
+  HAL_TIM_Base_Start_IT(&htim2);
   while (1)
   {
     /* USER CODE END WHILE */
@@ -382,7 +382,7 @@ static int count=0,widthcount=0;
 		}
 		HAL_DAC_SetValue(&hdac,DAC_CHANNEL_1,DAC_ALIGN_12B_R,wave);
 		count++;
-		if(count>200) count=0;
+		if(count>199) count=0;
 		DAC->SWTRIGR |= DAC_SWTRIGR_SWTRIG1; // Starts DAC conversion by software trigger
 		widthcount=0;
 	}
