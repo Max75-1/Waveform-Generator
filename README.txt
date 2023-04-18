@@ -1,0 +1,7 @@
+In this project, I am using the Nucleo-L152RE board to generate several types of waveforms for output to the oscilloscope.
+The main.c file contains several numerical arrays with values ​​​​for the DAC, which outputs a different voltage (up to 3.3 volts) to the PA4 pin, to which the oscilloscope probe is connected. The ground wire of the probe is connected to the GND of the Nucleo board.
+    Also in the project I'm use an ADC and a potentiometer to set the wave width. The right pin of the potentiometer is connected to the 3.3 volt output of the Nucleo board, the left pin to the GND of the Nucleo board, and the middle one to the PA0 pin. The resulting digital value (from 0 to 4095) I divide by 200. By moving the potentiometer knob, you can get a width factor ranging from 0 to 21.
+    In the project I also use the TIM2 timer in interrupt mode, the callback of which changes the sample value of the output wave. The type of the output wave is changed using the user button ( blue button ) of the Nucleo board using an external interrupt callback.
+    The trigger type for the DAC is set to software trigger and is called by writing 1 to the DAC->SWTRIGR register to generate the appropriate voltage output to the oscilloscope in the TIM2 interrupt callback.
+
+Happy using of project !
